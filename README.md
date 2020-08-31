@@ -8,3 +8,4 @@ Advantage of Room Persistence library
 2. Room maps our database objects to Java Object without boilerplate code.
 3. Room is built to work with LiveData and RxJava for data observation.
 
+![Architecure](1_nPLp8XsB7e529f82XgddyA.png)
