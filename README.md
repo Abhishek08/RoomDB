@@ -111,3 +111,40 @@ interface DaoStudent {
 
 ```
 
+##### Step 4 : Create the database  
+
+```java
+
+Database(entities = [Student::class], version = 2)
+@TypeConverters(DateConverter::class)
+abstract class StudentDataBase : RoomDatabase() {
+
+
+    abstract fun getStudentDao(): DaoStudent
+
+
+    companion object {
+        var INSTANCE: StudentDataBase? = null
+       
+
+        fun getStudentDataBase(context: Context): StudentDataBase? {
+            if (INSTANCE == null) {
+                INSTANCE = Room.databaseBuilder(
+                    context.applicationContext,
+                    StudentDataBase::class.java,
+                    "studentDb"
+                )
+                    .build()
+            }
+            return INSTANCE
+        }
+
+        fun cleanDbObject() {
+            INSTANCE = null
+        }
+
+    }
+}
+
+```
+
