@@ -9,10 +9,9 @@ Advantage of Room Persistence library
 3. Room is built to work with LiveData and RxJava for data observation.
 
 <p align="center">
-  <img width="460" height="300" src="1_nPLp8XsB7e529f82XgddyA.png">
+  <img  src="1_nPLp8XsB7e529f82XgddyA.png">
 </p>
 
-![Screenshot](1_nPLp8XsB7e529f82XgddyA.png)
 
 Room has three main components of Room DB :
 Entity
