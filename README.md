@@ -74,7 +74,7 @@ dependencies {
 
 ```
 
-##### Step 2 : 
+##### Step 2 : Create the Model class that is our Entity 
 
 ```java
 @Entity
@@ -85,5 +85,29 @@ data class Student(
     @ColumnInfo(name = "dob") var dob: Date,
     @ColumnInfo(name = "address") var address: String
 )
+```
+
+##### Step 3 : Create the DAO 
+
+```java
+
+@Dao
+interface DaoStudent {
+
+    @Query("SELECT * FROM Student")
+    fun loadAll(): List<Student>
+
+    @Delete
+    fun deleteStudent(student: Student)
+
+    @Query("SELECT * from Student where firstName==:name")
+    fun getStudentListByName(name: String): List<Student>
+
+    @Insert
+    fun insertStudent(student: Student)
+
+}
+
+
 ```
 
