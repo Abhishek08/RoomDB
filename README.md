@@ -148,3 +148,20 @@ abstract class StudentDataBase : RoomDatabase() {
 
 ```
 
+##### Step 4 : How to perform Insert , Retrive , and Delete Operation 
+
+```java
+
+GlobalScope.launch {
+
+            var student = Student(4, "abhishek", "modi", date,"Indore")
+            instant.getStudentDao().insertStudent(student)
+
+            var list = instant.getStudentDao().loadAll()
+
+            Log.e("Student", "$list")
+        }
+
+```
+
+    
