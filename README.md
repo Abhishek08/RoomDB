@@ -13,7 +13,8 @@ Advantage of Room Persistence library
 </p>
 
 
-Room has three main components of Room DB :
-Entity
-Dao
-Database
+### Room has three main components of Room DB :
+
+1. Entity
+2. Dao
+3. Database
