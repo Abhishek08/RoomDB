@@ -58,7 +58,10 @@ Be an abstract class that extends RoomDatabase.
 ##### Step 1 : Add dependencies 
 
 
-```sh
+```java
+
+apply plugin: 'kotlin-kapt'
+
 dependencies {
   def room_version = "2.2.5"
 
@@ -70,6 +73,8 @@ dependencies {
 
   // optional - Test helpers
   testImplementation "androidx.room:room-testing:$room_version"
+  
+ 
 }
 
 ```
