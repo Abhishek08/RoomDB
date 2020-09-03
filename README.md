@@ -2,7 +2,7 @@
 
 Room provides an abstraction layer over SQLite to allow fluent database access while harnessing the full power of SQLite.
 
-Advantage of Room Persistence library 
+#### Advantage of Room Persistence library 
 
 1. Compile time validation of Raw Sql Quries.
 2. Room maps our database objects to Java Object without boilerplate code.
@@ -13,7 +13,7 @@ Advantage of Room Persistence library
 </p>
 
 
-### Room has three main components of Room DB :
+#### Room has three main components of Room DB :
 
 1. Entity
 2. Dao
