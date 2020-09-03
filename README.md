@@ -55,7 +55,7 @@ Be an abstract class that extends RoomDatabase.
 3. At runtime, you can acquire an instance of Database by calling Room.databaseBuilder() or Room.inMemoryDatabaseBuilder().
 
 
-##### Add dependencies 
+##### Step 1 : Add dependencies 
 
 
 ```sh
@@ -72,5 +72,18 @@ dependencies {
   testImplementation "androidx.room:room-testing:$room_version"
 }
 
+```
+
+##### Step 2 : 
+
+```java
+@Entity
+data class Student(
+    @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id") val id: Int,
+    @ColumnInfo(name = "firstName") var firstName: String,
+    @ColumnInfo(name = "lastName") var lastName: String,
+    @ColumnInfo(name = "dob") var dob: Date,
+    @ColumnInfo(name = "address") var address: String
+)
 ```
 
