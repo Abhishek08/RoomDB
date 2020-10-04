@@ -71,6 +71,11 @@ dependencies {
   // optional - Test helpers
   testImplementation "androidx.room:room-testing:$room_version"
   
+   // Coroutines  
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.7'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.6'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-rx2:1.3.2"
+  
  
 }
 
