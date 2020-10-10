@@ -171,4 +171,58 @@ GlobalScope.launch {
 
 ```
 
-    
+## ROOM DB migration 
+
+##### Adding the new column in the table 
+'''java
+@Entity(tableName = "student")
+data class Student(
+    @PrimaryKey(autoGenerate = true) var id: Int = 0,
+    @ColumnInfo(name = "firstName")
+    var firstName: String,
+    @ColumnInfo(name = "lastName")
+    var lastName: String,
+    @ColumnInfo(name = "address")
+    var address: String,
+    @ColumnInfo(name = "address2")
+    var address2: String
+)
+'''
+
+##### Change the database Version from 1 to 2
+
+'''sh
+@Database(entities = [Student::class], version = 2)
+'''
+
+##### Add the migation code 
+
+'''java
+
+  var MIGRATION_1_2: Migration = object : Migration(1, 2) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL("ALTER TABLE student ADD COLUMN address2 TEXT NOT NULL DEFAULT ''")
+            }
+
+        }
+        
+'''
+
+##### set this migration varible in the Database Method
+
+'''java
+
+ fun getStudentDataBase(context: Context): StudentDataBase? {
+            if (INSTANCE == null) {
+                INSTANCE = Room.databaseBuilder(
+                    context.applicationContext,
+                    StudentDataBase::class.java,
+                    "studentDb"
+                )
+                    .addMigrations(MIGRATION_1_2)
+                    .build()
+            }
+            return INSTANCE
+        }
+        
+'''
