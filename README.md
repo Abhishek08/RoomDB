@@ -174,7 +174,8 @@ GlobalScope.launch {
 ## ROOM DB migration 
 
 ##### Adding the new column in the table 
-'''java
+```java
+
 @Entity(tableName = "student")
 data class Student(
     @PrimaryKey(autoGenerate = true) var id: Int = 0,
@@ -187,17 +188,17 @@ data class Student(
     @ColumnInfo(name = "address2")
     var address2: String
 )
-'''
+```
 
 ##### Change the database Version from 1 to 2
 
-'''sh
+```sh
 @Database(entities = [Student::class], version = 2)
-'''
+```
 
 ##### Add the migation code 
 
-'''java
+```java
 
   var MIGRATION_1_2: Migration = object : Migration(1, 2) {
             override fun migrate(database: SupportSQLiteDatabase) {
@@ -206,11 +207,11 @@ data class Student(
 
         }
         
-'''
+```
 
 ##### set this migration varible in the Database Method
 
-'''java
+```java
 
  fun getStudentDataBase(context: Context): StudentDataBase? {
             if (INSTANCE == null) {
@@ -225,4 +226,4 @@ data class Student(
             return INSTANCE
         }
         
-'''
+```
